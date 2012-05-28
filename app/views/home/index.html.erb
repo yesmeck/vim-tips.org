@@ -1,23 +1,13 @@
-<h1>Listing tips</h1>
+<h1>Vim Tips</h1>
 
-<table>
-  <tr>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul id="tips">
 <% @tips.each do |tip| %>
-  <tr>
-    <td><%= tip.content %></td>
-    <td><%= link_to 'Show', tip %></td>
-    <td><%= link_to 'Edit', edit_tip_path(tip) %></td>
-    <td><%= link_to 'Destroy', tip, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <li class="tip">
+    <%= tip.content %>
+    <%= link_to 'Show', tip %>
+    <%= link_to 'Edit', edit_tip_path(tip) %>
+    <%= link_to 'Destroy', tip, confirm: 'Are you sure?', method: :delete %>
+  </li>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New Tip', new_tip_path %>
