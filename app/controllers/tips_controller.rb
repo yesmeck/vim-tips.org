@@ -1,15 +1,4 @@
 class TipsController < ApplicationController
-  # GET /tips
-  # GET /tips.json
-  def index
-    @tips = Tip.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @tips }
-    end
-  end
-
   # GET /tips/1
   # GET /tips/1.json
   def show
