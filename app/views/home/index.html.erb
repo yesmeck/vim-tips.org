@@ -2,7 +2,7 @@
 
 <ul id="tips">
 <% @tips.each do |tip| %>
-  <li class="tip">
+  <li class="tip well">
     <%= tip.content %>
     <%= link_to 'Show', tip %>
     <%= link_to 'Edit', edit_tip_path(tip) %>
