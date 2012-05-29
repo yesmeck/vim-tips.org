@@ -4,9 +4,8 @@
 <% @tips.each do |tip| %>
   <li class="tip well">
     <%= tip.content %>
-    <%= link_to 'Show', tip %>
-    <%= link_to 'Edit', edit_tip_path(tip) %>
-    <%= link_to 'Destroy', tip, confirm: 'Are you sure?', method: :delete %>
+    (via <%= link_to tip.twitter_id, "http://twitter.com/#{tip.twitter_id}" %>)
+    <%= link_to '<i class="icon-comment" title="Leave A Comment"></i>'.html_safe, tip, :class => 'tip-link hide' %>
   </li>
 <% end %>
 </ul>
