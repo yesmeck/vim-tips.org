@@ -1,4 +1,4 @@
-VimTipsOrg::Application.routes.draw do
+Vimtips::Application.routes.draw do
 
   mount RailsAdmin::Engine => '/bazinga', :as => 'rails_admin'
 

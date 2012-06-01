@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-VimTipsOrg::Application.load_tasks
+Vimtips::Application.load_tasks
