@@ -1,4 +1,9 @@
 class TipsController < ApplicationController
+  # GET /
+  def index
+    @tips = Tip.all
+  end
+
   # GET /tips/1
   def show
     @tip = Tip.find(params[:id])
