@@ -1,0 +1,7 @@
+<% if !tip.twitter_id.nil? and !tip.twitter_id.empty? %>
+  (via <%= link_to tip.twitter_id, "http://twitter.com/#{tip.twitter_id}", :title => "Follow #{tip.twitter_id}" %>)
+<% elsif !tip.name.nil? and tip.url.nil? %>
+  (via <%= tip.name %>)
+<% elsif !tip.name.nil? and !tip.url.nil? %>
+  (via <%= link_to tip.name, tip.url %>)
+<% end %>

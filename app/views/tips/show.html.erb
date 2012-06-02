@@ -2,7 +2,7 @@
 
 <div class="tip well">
   <%= @tip.content %>
-  (via <%= link_to @tip.twitter_id, "http://twitter.com/#{@tip.twitter_id}" %>)
+  <%= render 'via', :tip => @tip %>
 </div>
 
 <%= render 'disqus' %>

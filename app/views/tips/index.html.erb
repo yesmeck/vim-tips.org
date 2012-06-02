@@ -4,8 +4,10 @@
 <% @tips.each do |tip| %>
   <li class="tip well">
     <%= tip.content %>
-    (via <%= link_to tip.twitter_id, "http://twitter.com/#{tip.twitter_id}" %>)
-    <%= link_to '<i class="icon-comment"></i>'.html_safe, tip, :class => 'tip-link hide', :title => "Leave A Comment" %>
+    <%= render 'via', :tip => tip %>
+    <%= link_to tip, :class => 'tip-link hide', :title => 'Leave A Comment' do %>
+      <i class="icon-comment"></i>
+    <% end %>
   </li>
 <% end %>
 </ul>
