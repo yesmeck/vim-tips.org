@@ -4,6 +4,8 @@ Vimtips::Application.routes.draw do
 
   devise_for :users
 
+  match 'tips/random' => 'tips#random'
+
   resources :tips
 
   # The priority is based upon order of creation:

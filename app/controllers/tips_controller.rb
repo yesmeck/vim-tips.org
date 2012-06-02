@@ -26,4 +26,11 @@ class TipsController < ApplicationController
     end
   end
 
+  # GET /tips/random
+  def random
+    rand_id = rand(Tip.count);
+    @tip = Tip.first(:conditions => ['id >= ?', rand_id]);
+    render :text => @tip.content
+  end
+
 end
