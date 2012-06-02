@@ -1,5 +1,5 @@
 class Tip < ActiveRecord::Base
-  attr_accessible :content, :name, :twitter_id
+  attr_accessible :content, :name, :twitter_id, :url
 
   validates :content, :presence => true, :length => { :maximum => 140 }
   validates :name, :length => { :maximum => 20 }
