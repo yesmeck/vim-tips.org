@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
+gem 'bootstrap-will_paginate'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

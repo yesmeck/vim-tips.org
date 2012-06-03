@@ -1,7 +1,10 @@
 class TipsController < ApplicationController
   # GET /
   def index
-    @tips = Tip.all
+    if params[:page].nil?
+      params[:page] = 1
+    end
+    @tips = Tip.paginate(:page => params[:page], :per_page=> 10)
   end
 
   # GET /tips/1
