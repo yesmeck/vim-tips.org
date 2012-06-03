@@ -6,6 +6,7 @@ Vimtips::Application.routes.draw do
 
   match 'tips/random' => 'tips#random'
   match 'plugin' => 'home#plugin'
+  match 'about' => 'home#about'
 
   resources :tips
 
