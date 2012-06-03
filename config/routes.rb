@@ -5,6 +5,7 @@ Vimtips::Application.routes.draw do
   devise_for :users
 
   match 'tips/random' => 'tips#random'
+  match 'plugin' => 'home#plugin'
 
   resources :tips
 
