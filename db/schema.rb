@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120602091354) do
+ActiveRecord::Schema.define(:version => 20120604141603) do
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120602091354) do
     t.string   "name"
     t.string   "twitter_id"
     t.string   "url"
+    t.boolean  "approved"
   end
 
   create_table "users", :force => true do |t|
