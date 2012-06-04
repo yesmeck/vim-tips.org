@@ -4,12 +4,15 @@ class TipsController < ApplicationController
     if params[:page].nil?
       params[:page] = 1
     end
-    @tips = Tip.paginate(:page => params[:page], :per_page=> 10)
+    @tips = Tip.where(:approved => true).paginate(:page => params[:page], :per_page=> 10)
   end
 
   # GET /tips/1
   def show
-    @tip = Tip.find(params[:id])
+    @tip = Tip.where('approved = ? AND id = ?', true, params[':id'])
+    if @tip.empty?
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   # GET /tips/new
@@ -32,7 +35,7 @@ class TipsController < ApplicationController
   # GET /tips/random
   def random
     rand_id = rand(Tip.count);
-    @tip = Tip.first(:conditions => ['id >= ?', rand_id]);
+    @tip = Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true]);
     render :text => @tip.content
   end
 
