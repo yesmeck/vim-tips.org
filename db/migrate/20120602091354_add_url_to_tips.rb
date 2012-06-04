@@ -4,6 +4,6 @@ class AddUrlToTips < ActiveRecord::Migration
   end
 
   def down
-    remove_colum :tips, :url
+    remove_column :tips, :url
   end
 end

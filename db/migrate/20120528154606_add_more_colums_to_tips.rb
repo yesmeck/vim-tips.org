@@ -5,7 +5,7 @@ class AddMoreColumsToTips < ActiveRecord::Migration
   end
 
   def down
-    remove_colum :tips, :name
-    remove_colum :tips, :twitter_id
+    remove_column :tips, :name
+    remove_column :tips, :twitter_id
   end
 end
