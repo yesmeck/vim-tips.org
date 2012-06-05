@@ -1,5 +1,11 @@
 <h1>Vim Tips</h1>
 
+<% if !notice.nil? %>
+<div class="alert alert-success">
+  <a class="close" data-dismiss="alert" href="#">×</a>
+  <p id="notice"><%= notice %></p>
+</div>
+<% end %>
 <ul id="tips">
 <% @tips.each do |tip| %>
   <li class="tip well">

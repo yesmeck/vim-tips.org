@@ -1,8 +1,8 @@
 <%= form_for(@tip, :html => {:class => 'form-horizontal well'}) do |f| %>
   <% if @tip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tip.errors.count, "error") %> prohibited this tip from being saved:</h2>
-
+    <div id="error_explanation" class="alert alert-error">
+      <a class="close" data-dismiss="alert" href="#">×</a>
+      <h4 class="alert-heading">Oh snap!</h4>
       <ul>
       <% @tip.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

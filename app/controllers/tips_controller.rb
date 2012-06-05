@@ -26,7 +26,7 @@ class TipsController < ApplicationController
     @tip = Tip.new(params[:tip])
 
     if @tip.save
-      redirect_to @tip, notice: 'Tip was successfully created.'
+      redirect_to '/', notice: 'Thanks you for sharing, please wait for admin approval'
     else
       render action: "new"
     end
