@@ -4,7 +4,7 @@ class TipsController < ApplicationController
     if params[:page].nil?
       params[:page] = 1
     end
-    @tips = Tip.where(:approved => true).paginate(:page => params[:page], :per_page=> 10)
+    @tips = Tip.where(:approved => true).order('created_at DESC').paginate(:page => params[:page], :per_page=> 10)
   end
 
   # GET /tips/1
