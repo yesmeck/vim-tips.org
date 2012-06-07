@@ -35,8 +35,12 @@ class TipsController < ApplicationController
   # GET /tips/random
   def random
     rand_id = rand(Tip.count);
-    @tip = Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true]);
-    render :text => @tip.content
+    @tip = Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true])
+    if !@tip.nil?
+      render :text => @tip.content
+    else
+      render :text => 'No tips.'
+    end
   end
 
 end
