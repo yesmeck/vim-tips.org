@@ -9,8 +9,8 @@ class TipsController < ApplicationController
 
   # GET /tips/1
   def show
-    @tip = Tip.where('approved = ? AND id = ?', true, params[':id'])
-    if @tip.empty?
+    @tip = Tip.where('approved = ?', true).find(params[:id])
+    if @tip.nil?
       raise ActionController::RoutingError.new('Not Found')
     end
   end
