@@ -4,6 +4,7 @@
   var disqus_developer = 1;
   <% end %>
   var disqus_shortname = 'vimtips';
+  var disqus_url = '<%= url_for(:controller => 'tips', :action => 'show', :id => tip.id, :only_path => false)  %>';
 
   (function() {
    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
