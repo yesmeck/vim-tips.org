@@ -1,10 +1,9 @@
 class TipsController < ApplicationController
   # GET /
   def index
-    if params[:page].nil?
-      params[:page] = 1
-    end
-    @tips = Tip.where(:approved => true).order('created_at DESC').paginate(:page => params[:page], :per_page=> 15)
+    rand_id = rand(Tip.count);
+    @tip = Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true])
+    render 'show'
   end
 
   # GET /tips/1
