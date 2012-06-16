@@ -7,7 +7,7 @@ atom_feed :language => 'en-US' do |feed|
 
     feed.entry(tip) do |entry|
       entry.url tip_url(tip)
-      entry.tiltle tip.content
+      entry.title 'Did you know?'
       entry.content tip.content
       entry.updated(tip.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
