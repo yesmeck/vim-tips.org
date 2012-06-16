@@ -11,6 +11,9 @@ Vimtips::Application.routes.draw do
   match 'plugin' => 'home#plugin'
   match 'about' => 'home#about'
   match 'random' => 'home#random'
+  match 'feed' => 'tips#feed',
+        :as => :feed,
+        :defaults => { :format => 'atom' }
 
   resources :tips
 

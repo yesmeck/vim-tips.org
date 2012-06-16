@@ -45,4 +45,17 @@ class TipsController < ApplicationController
     end
   end
 
+  def feed
+    @title = 'Vim Tips'
+
+    @tips = Tip.where(:approved => true).order('created_at DESC')
+
+    @updated = @tips.first.updated_at unless @tips.empty?
+
+    respond_to do |format|
+      format.atom { render :layout => false, :content_type => 'application/xml' }
+      format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+    end
+  end
+
 end
