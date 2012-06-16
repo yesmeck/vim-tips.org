@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>
+    Tip: <%= @tip.content %>
+    <br />
+    Name: <%= @tip.name %>
+    <br />
+    Url: <%= @tip.url %>
+    <br />
+    Twitter: <%= link_to @tip.twitter_id, "http://twitter.com/#{@tip.twitter_id}" %>
+    </p>
+  </body>
+</html>
