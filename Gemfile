@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
+source 'http://ruby.taobao.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
