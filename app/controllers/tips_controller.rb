@@ -48,7 +48,7 @@ class TipsController < ApplicationController
 
     @tips = Tip.where(:approved => true).order('created_at DESC')
 
-    @updated = @tips.first.updated_at unless @tips.empty?
+    @updated = @tips.first.updated_at if !@tips.empty?
 
     respond_to do |format|
       format.atom { render :layout => false, :content_type => 'application/xml' }

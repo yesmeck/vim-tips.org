@@ -12,7 +12,7 @@ atom_feed :language => 'en-US' do |feed|
       entry.updated(tip.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ"))
 
       entry.author do |author|
-        author.name tip.name.empty? ? tip.twitter_id : tip.name
+        author.name tip.name.nil? ? tip.twitter_id : tip.name
       end
     end
   end
