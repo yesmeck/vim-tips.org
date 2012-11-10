@@ -1,8 +1,7 @@
 class TipsController < ApplicationController
   # GET /
   def index
-    rand_id = rand(Tip.count);
-    @tip = Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true])
+    @tip = Tip.random
     render 'show'
   end
 
@@ -36,8 +35,7 @@ class TipsController < ApplicationController
 
   # GET /tips/random
   def random
-    rand_id = rand(Tip.count);
-    @tip = Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true])
+    @tip = Tip.random
     if !@tip.nil?
       render :text => @tip.content
     else
