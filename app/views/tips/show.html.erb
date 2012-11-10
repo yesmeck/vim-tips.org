@@ -1,10 +1,16 @@
-<div class="tip well single">
-  <%= @tip.content %>
-  <%= render 'tips/via', :tip => @tip %>
-</div>
+<% if !@tip.nil? %>
+  <div class="tip well single">
+    <%= @tip.content %>
+    <%= render 'tips/via', :tip => @tip %>
+  </div>
 
-<div id="permalink">
-  <%= link_to '[Permalink]', @tip %>
-</div>
+  <div id="permalink">
+    <%= link_to '[Permalink]', @tip %>
+  </div>
 
-<%= render 'tips/disqus', :tip => @tip %>
+  <%= render 'tips/disqus', :tip => @tip %>
+<% else %>
+  <div class="tip well single">
+    No tips found.
+  </div>
+<% end %>

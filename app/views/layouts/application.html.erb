@@ -47,6 +47,11 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span6" id="container-center">
+          <% if !notice.nil? %>
+            <div class="alser alert-success">
+              <%= notice %>
+            </div>
+          <% end %>
           <%= yield %>
         </div>
       </div><!--/row-->
