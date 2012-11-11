@@ -17,11 +17,20 @@ server "vim-tips.org", :app, :web, :db, :primary => true
 
 default_run_options[:pty] = true
 
+set :unicorn_config, "#{deploy_to}/current/config/unicorn.rb"
+
 namespace :deploy do
-  task :start do ; end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  task :start, :roles => :app do
+    run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec unicorn_rails -c #{unicorn_config} -D"
+  end
+
+  task :stop do
+    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/unicorn.pid`"
+  end
+
+  desc "Restart Application"
+  task :restart, :roles => :app do
+    run "kill -USR2 `cat #{deploy_to}/current/tmp/pids/unicorn.pid`"
   end
 
   desc "things I need to do after deploy:setup"
