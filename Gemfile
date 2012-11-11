@@ -1,8 +1,14 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.8'
 
 gem 'sqlite3'
+gem 'unicorn'
+gem 'jquery-rails'
+gem 'twitter-bootstrap-rails'
+gem 'rails_admin'
+gem 'bootstrap-will_paginate'
+gem "devise"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -21,9 +27,3 @@ group :development do
   gem 'rvm-capistrano'
 end
 
-gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
-gem 'rails_admin'
-gem 'bootstrap-will_paginate'
-
-gem "devise"
