@@ -16,6 +16,11 @@ group :test do
   gem 'database_cleaner'
 end
 
+group :development do
+  gem 'capistrano', :require => false
+  gem 'rvm-capistrano'
+end
+
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
