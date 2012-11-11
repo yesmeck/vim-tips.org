@@ -1,0 +1,16 @@
+---
+applications:
+  .:
+    name: vimtips
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec:
+    url: vim-tips.${target-base}
+    mem: 256M
+    instances: 1
+    services:
+      mysql-e27f9:
+        type: mysql

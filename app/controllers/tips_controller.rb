@@ -28,7 +28,7 @@ class TipsController < ApplicationController
 
     if @tip.save
 
-      AdminMailer.notice_email(@tip).deliver
+      #AdminMailer.notice_email(@tip).deliver
 
       redirect_to '/', notice: 'Thanks you for sharing, please wait for admin approval'
     else

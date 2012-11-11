@@ -1,8 +1,7 @@
-<% content_for :title do %>
-  Vim Tips: <%= @tip.content %>
-<% end %>
-
 <% if !@tip.nil? %>
+  <% content_for :title do %>
+    Vim Tips: <%= @tip.content %>
+  <% end %>
   <div class="tip well single">
     <%= @tip.content %>
     <%= render 'tips/via', :tip => @tip %>
