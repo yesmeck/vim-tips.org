@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  Vim Tips: <%= @tip.content %>
+<% end %>
+
 <% if !@tip.nil? %>
   <div class="tip well single">
     <%= @tip.content %>
