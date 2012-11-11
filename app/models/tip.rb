@@ -6,7 +6,7 @@ class Tip < ActiveRecord::Base
   validates :twitter_id, :length => { :maximum => 20 }
 
   def self.random
-    rand_id = rand(Tip.count);
+    rand_id = rand(Tip.where('approved = ?', true).count);
     Tip.first(:conditions => ['id >= ? AND approved = ?', rand_id, true])
   end
 end
