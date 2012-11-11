@@ -1,4 +1,8 @@
 class HomeController < ApplicationController
+  def index
+    @tip = Tip.random
+    render 'tips/show'
+  end
   def plugin
 
   end

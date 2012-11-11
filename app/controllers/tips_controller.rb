@@ -1,8 +1,6 @@
 class TipsController < ApplicationController
   # GET /
   def index
-    @tip = Tip.random
-    render 'show'
   end
 
   # GET /tips/1

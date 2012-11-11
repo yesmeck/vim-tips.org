@@ -1,6 +1,6 @@
 Vimtips::Application.routes.draw do
 
-  root :to => 'tips#index'
+  root :to => 'home#index'
 
   mount RailsAdmin::Engine => '/bazinga', :as => 'rails_admin'
 
