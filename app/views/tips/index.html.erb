@@ -1,0 +1,15 @@
+<h1>All Tips</h1>
+
+<ul id="tips">
+<% @tips.each do |tip| %>
+  <li class="tip well">
+    <%= tip.content %>
+    <%= render 'via', :tip => tip %>
+    <%= link_to tip, :class => 'tip-link hide', :title => 'Leave A Comment' do %>
+      <i class="icon-comment"></i>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<%= will_paginate @tips %>
