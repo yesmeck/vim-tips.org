@@ -1,4 +1,8 @@
-source 'https://rubygems.org'
+if 'development' == ENV['RAILS_ENV']
+  source 'http://ruby.taobao.org'
+else
+  source 'https://rubygems.org'
+end
 
 gem 'rails', '3.2.8'
 
