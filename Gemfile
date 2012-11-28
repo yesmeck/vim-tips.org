@@ -13,6 +13,7 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem 'bootstrap-will_paginate'
 gem "devise"
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
