@@ -4,7 +4,7 @@ else
   source 'https://rubygems.org'
 end
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 
 gem 'mysql2'
 gem 'unicorn'
@@ -29,6 +29,7 @@ end
 
 group :development do
   gem 'capistrano', :require => false
+  gem 'therubyracer', '0.10.2', :platforms => :ruby
   gem 'rvm-capistrano'
 end
 
