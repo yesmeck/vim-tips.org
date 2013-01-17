@@ -16,8 +16,6 @@ set :deploy_to, "/var/www/vim-tips.org"
 set :keep_releases, 5
 set :port, 64
 
-after "deploy:cleanup", "deploy:restart"
-
 server "vim-tips.org", :app, :web, :db, :primary => true
 
 default_run_options[:pty] = true
