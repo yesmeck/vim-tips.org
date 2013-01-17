@@ -10,6 +10,7 @@ set :user, "meck"
 set :use_sudo, false
 set :deploy_to, "/var/www/vim-tips.org"
 set :keep_releases, 5
+set :port, 64
 
 after "deploy:restart", "deploy:cleanup"
 
