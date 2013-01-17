@@ -1,0 +1,35 @@
+upstream app_server {
+  server unix:/tmp/unicorn.<%= application %>.sock;
+}
+
+server {
+    server_name vim-tips.org www.vim-tips.org;
+
+    if ($host != 'vim-tips.org') {
+        rewrite ^/(.*)$ http://vim-tips.org/$1 permanent;
+    }
+
+    access_log  /var/log/nginx/vim-tips.org.access.log;
+    error_log  /var/log/nginx/vim-tips.org.error.log;
+
+    root <%= current_path %>/public;
+
+    location / {
+        try_files $uri $uri/index.html $uri.html @app;
+    }
+
+    location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+        access_log off;
+        expires 7d;
+        add_header Pragma public;
+        add_header Cache-Control "public";
+    }
+
+    location @app {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+
+        proxy_pass http://app_server;
+    }
+}

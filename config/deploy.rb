@@ -1,6 +1,10 @@
 require "rvm/capistrano"
 require "bundler/capistrano"
 
+load "config/recipes/base"
+load "config/recipes/nginx"
+load "config/recipes/unicorn"
+
 set :application, "vimtips"
 set :repository,  "git://github.com/yesmeck/vim-tips.org.git"
 
@@ -18,24 +22,9 @@ server "vim-tips.org", :app, :web, :db, :primary => true
 
 default_run_options[:pty] = true
 
-set :unicorn_config, "#{deploy_to}/current/config/unicorn.rb"
-
 set :assets_dependencies, %w(app/assets lib/assets vendor/assets Gemfile.lock config/routes.rb)
 
 namespace :deploy do
-  task :start, :roles => :app do
-    run "cd #{deploy_to}/current/; RAILS_ENV=production bundle exec unicorn_rails -c #{unicorn_config} -D"
-  end
-
-  task :stop do
-    run "kill -QUIT `cat #{deploy_to}/current/tmp/pids/unicorn.pid`"
-  end
-
-  desc "Restart Application"
-  task :restart, :roles => :app do
-    run "kill -USR2 `cat #{deploy_to}/current/tmp/pids/unicorn.pid`"
-  end
-
   desc "things I need to do after deploy:setup"
   task :setup_config, :roles => :app do
     run "mkdir -p #{shared_path}/config"
